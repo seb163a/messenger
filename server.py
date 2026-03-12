@@ -108,4 +108,7 @@ def g(r, last_id):
     return jsonify([m for m in raeume[r] if m['id'] > last_id])
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5002)
+    import os
+    # Render gibt uns einen Port vor, sonst nutzen wir 5002
+    port = int(os.environ.get("PORT", 5002))
+    app.run(host='0.0.0.0', port=port)
